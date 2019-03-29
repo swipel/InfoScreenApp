@@ -35,7 +35,7 @@ public class CreatePostPresenter implements TaskCompleted {
     }
 
     private void getPostType(){
-        new HttpAsyncTaskGet(this, new PostTypeDTO[0], "http://www.skole.pietras.dk/api/postType").execute();
+        new HttpAsyncTaskGet(this, new PostTypeDTO[0], "postType").execute();
 
     }
 
@@ -52,7 +52,7 @@ public class CreatePostPresenter implements TaskCompleted {
             body = null;
             base64Picture = BitmapToBase64(picture);
         }
-        new HttpAsyncTaskPost(this, new PostDTO(headline, body, base64Picture, checked, new Date(), new PostTypeDTO(spinner.toString(), new Date())), "http://www.skole.pietras.dk/api/post").execute();
+        new HttpAsyncTaskPost(this, new PostDTO(headline, body, base64Picture, checked, new Date(), new PostTypeDTO(spinner.toString(), new Date())), "post").execute();
     }
 
     /*

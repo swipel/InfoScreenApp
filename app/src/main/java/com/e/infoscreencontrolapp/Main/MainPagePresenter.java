@@ -43,15 +43,15 @@ public class MainPagePresenter implements TaskCompleted {
     }
 
     public void deletePostToHttp(PostDTO post){
-        new HttpAsyncTaskDelete(getInstance(), post, "http://www.skole.pietras.dk/api/post").execute();
+        new HttpAsyncTaskDelete(getInstance(), post, "post").execute();
     }
 
     public void getIntervalFromHttp(){
-        new HttpAsyncTaskGet(getInstance(), new IntervalDTO(), "http://www.skole.pietras.dk/api/interval").execute();
+        new HttpAsyncTaskGet(getInstance(), new IntervalDTO(), "interval").execute();
     }
 
     public void updateIntervalToHttp(int interval){
-        new HttpAsyncTaskPut(getInstance(), new IntervalDTO(interval), "http://www.skole.pietras.dk/api/interval").execute();
+        new HttpAsyncTaskPut(getInstance(), new IntervalDTO(interval), "interval").execute();
     }
 
     //Create handle and start runnable start async task and check if they running
@@ -60,7 +60,7 @@ public class MainPagePresenter implements TaskCompleted {
             @Override
             public void run() {
                 if (pageTask == null || pageTask.getStatus() == AsyncTask.Status.FINISHED) {
-                    pageTask = new HttpAsyncTaskGet(getInstance(), new PostDTO[0], "http://www.skole.pietras.dk/api/post").execute();
+                    pageTask = new HttpAsyncTaskGet(getInstance(), new PostDTO[0], "post").execute();
                 }
                 handler.postDelayed(this, interval);
             }

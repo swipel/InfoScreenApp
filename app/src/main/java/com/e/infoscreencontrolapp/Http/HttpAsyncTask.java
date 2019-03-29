@@ -21,7 +21,7 @@ public abstract class HttpAsyncTask extends AsyncTask<String, Void, Object> {
 
     public HttpAsyncTask(TaskCompleted listener, Object obj, String url) {
         this.obj = obj;
-        this.url = url;
+        this.url = "http://www.skole.pietras.dk/api/"+url;
         this.listener = listener;
     }
 

@@ -70,7 +70,7 @@ public class MainPageAdapterPost extends ArrayAdapter<PostDTO> implements TaskCo
                     CheckBox checkBox = (CheckBox) v;
                     PostDTO post = posts[position];
                     post.featured = checkBox.isChecked();
-                    new HttpAsyncTaskPut(getInstance(), post, "http://www.skole.pietras.dk/api/post").execute();
+                    new HttpAsyncTaskPut(getInstance(), post, "post").execute();
                     if (posts[position].featured) {
                         Toast.makeText(context, "Tilføjet " + posts[position].headline + " fra information skærmen", Toast.LENGTH_SHORT).show();
                     } else {

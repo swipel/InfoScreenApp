@@ -40,7 +40,7 @@ public class UpdatePostPresenter implements TaskCompleted {
         } else {
             post.picture = BitmapToBase64(picture);
         }
-        new HttpAsyncTaskPut(this, post, "http://www.skole.pietras.dk/api/post").execute();
+        new HttpAsyncTaskPut(this, post, "post").execute();
     }
 
     /*
